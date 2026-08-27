@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝕂𝕒𝕟𝕘 𝕐𝕖𝕠𝕤𝕒𝕟𝕘</title>
+
+    <!-- Иконка сайта -->
+    <link rel="icon" type="image/png" href="assets/particle.PNG">
+    
+    <link rel="stylesheet" href="style.css?v=3">
+</head>
+
+<body>
+
+    <!-- 🎵 КНОПКА ВЫЗОВА МУЗЫКИ -->
+    <button id="musicToggle" class="music-btn" title="Музыкальный плейлист">
+        <span class="music-icon">🎵</span>
+    </button>
+
+
+    <!-- =========================================
+         1. ОБЫЧНЫЙ ЭКРАН (MAIN PAGE)
+         ========================================= -->
+
+    <section id="mainPage" class="page main-page">
+        <div class="main-content">
+
+            <h1>𝕂𝕒𝕟𝕘 𝕐𝕖𝕠𝕤𝕒𝕟𝕘</h1>
+
+            <p class="main-subtitle">
+                a little corner of the internet made for you ♡
+            </p>
+
+            <p id="currentDate" class="current-date">
+                26 августа 2026
+            </p>
+
+            <!-- КАЛЕНДАРЬ -->
+            <div class="mini-calendar">
+                <div class="mini-calendar-header">
+                    <span id="calendarMonth">JULY</span>
+                    <span id="calendarYear">2026</span>
+                </div>
+
+                <div class="calendar-weekdays">
+                    <span>MON</span>
+                    <span>TUE</span>
+                    <span>WED</span>
+                    <span>THU</span>
+                    <span>FRI</span>
+                    <span>SAT</span>
+                    <span>SUN</span>
+                </div>
+
+                <div id="calendar" class="calendar"></div>
+
+                <p class="calendar-hint">
+                    ✦ save the date ✦
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- =========================================
+         2. ПРАЗДНИЧНЫЙ ЭКРАН (BIRTHDAY PAGE)
+         ========================================= -->
+
+    <section id="birthdayPage" class="page birthday-page hidden">
+
+        <!-- ДЕКОР -->
+        <div class="birthday-decoration" aria-hidden="true">
+            <span class="falling-star star-1"></span>
+            <span class="falling-star star-2"></span>
+            <span class="falling-star star-3"></span>
+            <span class="falling-star star-4"></span>
+
+            <span class="kinich-line line-1"></span>
+            <span class="kinich-line line-2"></span>
+            <span class="kinich-line line-3"></span>
+            <span class="kinich-line line-4"></span>
+        </div>
+
+        <!-- ЛУНА -->
+        <div class="birthday-moon">
+            <div class="moon-glow"></div>
+            <canvas id="moonCanvas" class="moon-canvas" width="380" height="380"></canvas>
+        </div>
+
+        <!-- КНОПКА HOME -->
+        <button id="homeButton" class="home-button" type="button">
+            ← home
+        </button>
+
+        <!-- ПРАЗДНИЧНЫЙ КОНТЕНТ -->
+        <div class="birthday-content">
+
+            <p class="birthday-small-text">
+                today is your special day...
+            </p>
+
+            <!-- КИНИЧ С ТАБЛИЧКОЙ В РУКАХ -->
+            <div class="kinich-container">
+                <img id="kinichImage" class="kinich-image" src="assets/kinich.png" alt="Kinich">
+                <img class="kinich-hand-sign" src="assets/kinich-sign.PNG" alt="Happy Birthday Yeosang">
+            </div>
+
+            <!-- ТЕКСТ -->
+            <p class="birthday-message">
+                today belongs to you.
+            </p>
+
+            <!-- КНОПКА ПОДАРКА -->
+            <button id="giftButton" type="button">
+                Open your gift ♡
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         3. ЭКРАН ПОДАРКА (GIFT PAGE)
+         ========================================= -->
+
+    <section id="giftPage" class="page gift-page hidden">
+
+        <!-- BACK -->
+        <button id="backButton" class="back-button" type="button">
+            ← back
+        </button>
+
+        <!-- КОНТЕНТ ПОДАРКА -->
+        <div class="gift-content">
+
+            <!-- 🎬 КНОПКА ВИДЕО (Находится внутри экрана подарка над заголовком!) -->
+            <div class="video-btn-container">
+                <button id="openVideoBtn" class="gift-video-btn" title="Смотреть видео-подарок" type="button">
+                    <span class="video-icon">🎬</span>
+                    <span class="video-text">EDIT ♡</span>
+                </button>
+            </div>
+
+            <p class="gift-small-text">
+                something made just for you...
+            </p>
+
+            <h1>For you ♡</h1>
+
+            <!-- КОНВЕРТ -->
+            <div id="envelope" class="envelope">
+
+                <div class="envelope-back"></div>
+
+                <!-- ТО, ЧТО ВИДНО НА КАРТОЧКЕ ВНУТРИ КОНВЕРТА -->
+                <div class="letter">
+                    <div class="letter-inner">
+                        <p class="letter-greeting">
+                            Для Ёсана ♡
+                        </p>
+                        <p>
+                            Открой меня, чтобы прочитать послание...
+                        </p>
+                    </div>
+                </div>
+
+                <div class="envelope-front"></div>
+                <div class="envelope-flap"></div>
+
+            </div>
+
+            <!-- ПОДСКАЗКА -->
+            <p id="openText" class="open-text">
+                drag the letter up ♡
+            </p>
+
+            <!-- ПОСЛАНИЕ СНИЗУ (Полный текст) -->
+            <div id="letterMessage" class="letter-message hidden">
+                <p>
+                    С днем рождения, Ёсан! 💫
+                </p>
+                <p>
+                    Этот маленький уголок интернета создан нашими руками специально для тебя (при поддержке Август и капельки магии Кинича).
+                </p>
+                <p>
+                    Оставайся всегда таким же лучезарным, сильным и прекрасным. Пусть удача всегда будет на твоей стороне, а на душе будет легко и тепло.
+                </p>
+                <p style="margin-top: 15px; font-weight: bold;">
+                    С любовью, Габа и Август ♡
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         4. МОДАЛЬНЫЕ ОКНА (МУЗЫКА И ВИДЕО)
+         ========================================= -->
+
+    <!-- ОКНО С ПЛЕЕРОМ ЯНДЕКС МУЗЫКИ -->
+    <div id="musicModal" class="music-modal hidden">
+        <div class="music-modal-content">
+            <button id="closeMusic" class="close-music">&times;</button>
+            <iframe 
+                frameborder="0" 
+                allow="clipboard-write" 
+                style="border:none; width:100%; height:450px; border-radius:12px;" 
+                width="100%" 
+                height="450" 
+                src="https://music.yandex.ru/iframe/playlist/kan9.yeosang/1002">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- МОДАЛКА ВИДЕО -->
+<div id="videoModal" class="video-modal hidden">
+    <div class="video-modal-content">
+        <button id="closeVideo" class="close-video">&times;</button>
+        <video id="giftVideo" controls playsinline style="width: 100%; border-radius: 12px;">
+            <source src="assets/video.mp4" type="video/mp4">
+            Ваш браузер не поддерживает просмотр данного видео.
+        </video>
+    </div>
+</div>
+
+
+
+    <!-- =========================================
+         5. ДЕКОРАТИВНЫЕ PNG-ЭЛЕМЕНТЫ И СКРИПТЫ
+         ========================================= -->
+
+    <div class="site-decorations">
+        <!-- Спутник в правом верхнем углу -->
+        <img class="decor-companion" src="assets/pixel-companion.PNG" alt="Pixel Companion">
+
+        <!-- Бабочки в левом верхнем углу -->
+        <img class="decor-butterflies" src="assets/butterfly.PNG" alt="Butterflies">
+
+        <!-- Пиксели в правом нижнем углу -->
+        <img class="decor-particles" src="assets/particle.PNG" alt="Particles">
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
